@@ -9,7 +9,7 @@ const App=()=>{
   
   const [receipes,setReceipes]=useState([])
   const [search,setSearch]=useState('')
-  const [query,setQuery]=useState('chicken')
+  const [query,setQuery]=useState('')
   
 
    useEffect(()=>{
@@ -21,7 +21,7 @@ const App=()=>{
 
      const data=await response.json()
      setReceipes(data.hits)
-     console.log(data.hits)
+     
    }
 
    const updateSearch=(e)=>{
@@ -33,6 +33,7 @@ const App=()=>{
      e.preventDefault()
      setQuery(search)
      setSearch('')
+     console.log(search)
    }
   return(
      <div className='App'>
@@ -40,6 +41,10 @@ const App=()=>{
          <input type='text' value={search} onChange={updateSearch}className='search-bar'/>
          <button type='submit' className='search-btn'>Search</button>
        </form>
+       <h3 className='search'>Search for your favourite recipes</h3>
+       <br/>
+       <h3 className='search'>Your search matches with {receipes.length} recipes</h3>
+
        <div className='recipes'>
          {receipes.map(receipe=><Receipe title={receipe.recipe.label} calories={receipe.recipe.calories} image={receipe.recipe.image}
           ingredients={receipe.recipe.ingredients} key={receipe.recipe.title}/>)}

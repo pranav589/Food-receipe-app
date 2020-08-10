@@ -34,3 +34,27 @@
   justify-content: space-around;
   flex-wrap: wrap;
 }
+
+.mainRecipe{
+  border-radius:10px;
+  box-shadow: 0  5px 20px rgba(71,71,71);
+  margin:20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background:lightblue;
+  align-items: center;
+  min-width: 40%;
+  padding: 10px
+}
+
+img{
+border-radius: 50%;
+height: 200px;
+width:200px
+}
+
+.search{
+  text-align: center
+}
+
